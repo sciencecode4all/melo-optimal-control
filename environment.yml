@@ -1,0 +1,10 @@
+name: gekko310
+channels:
+  - https://repo.anaconda.com/pkgs/main
+  - https://repo.anaconda.com/pkgs/r
+dependencies:
+  - pip
+  - python=3.10
+  - numpy
+  - matplotlib
+
