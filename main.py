@@ -6,7 +6,7 @@ from Pomme import Pomme
 from affichage import visualiser_simulation
 from gekko import GEKKO
 
-m = GEKKO(remote=False)
+m = GEKKO()
 
 # Mélo
 x0_melo = np.concatenate((np.array([1.5, 7]), np.zeros(2)))
