@@ -5,7 +5,7 @@ from Melo import Melo
 # Environnement
 # =========================
 class Environnement:
-    def __init__(self,m, temps_total, N, Melo, pomme_objectif, obstacles=[], pommes=[]):
+    def __init__(self,m, temps_total, N, Melo, pomme_objectif, obstacles=[], entites=[]):
         self.m = m 
         self.m.time = np.linspace(0, temps_total, N)  # horizon
         # Système
@@ -15,7 +15,7 @@ class Environnement:
         # Obstacles à éviter
         self.obstacles = obstacles
         # pour affichage
-        self.pommes = pommes
+        self.entites = entites
 
     def setup_ocp(self):
         # Contrainte obstacle

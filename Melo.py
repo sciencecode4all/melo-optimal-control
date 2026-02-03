@@ -3,10 +3,12 @@
 # =========================
 
 from gekko import GEKKO
+from Entite import Entite
 import matplotlib.image as mpimg
 
-class Melo:
-    def __init__(self, m, x0, image:str, taille:float):
+class Melo(Entite):
+    def __init__(self, m, nom:str, x0, image:str, taille:float, ):
+        super().__init__(nom, x0, image, taille)
         """
         m, 
         x0, état initiale/actuelle de Mélo,
@@ -30,10 +32,6 @@ class Melo:
         m.Equation(self.y.dt()  == self.vy)
         m.Equation(self.vx.dt() == self.ax)
         m.Equation(self.vy.dt() == self.ay)
-
-        # Pour l'affichage
-        self.image = mpimg.imread(image)
-        self.taille = taille
 
     def cost(self, pomme_x, pomme_y):
         # minimiser la distance entre la pomme et mélo

@@ -2,9 +2,9 @@ import numpy as np
 from Environnement import Environnement
 from Melo import Melo
 from Herisson import Herisson
-from Pomme import Pomme
 from affichage import visualiser_simulation
 from gekko import GEKKO
+from Entite import Entite
 
 m = GEKKO()
 
@@ -12,33 +12,34 @@ m = GEKKO()
 x0_melo = np.concatenate((np.array([1.5, 7]), np.zeros(2)))
 image_melo = "src/melo.png"
 taille_melo = 2.5
-melo = Melo(m, x0_melo, image_melo, taille_melo)
+melo = Melo(m, "Mélo", x0_melo, image_melo, taille_melo)
 
 # Pomme
 x_pomme = np.array([4.5, 2.5]) 
 image_pomme = "src/pomme.png"
 taille_pomme = 1.25
-pomme = Pomme("objectif", x_pomme, image_pomme, taille_pomme)
+pomme = Entite("Pomme", x_pomme, image_pomme, taille_pomme)
 
 # Pommier (pour affichage)
 x_pommier = np.array([5.8, 3.8]) 
 image_pommier = "src/pommier.png"
 taille_pommier = 4
-pommier = Pomme("pommier", x_pommier, image_pommier, taille_pommier)
+pommier = Entite("", x_pommier, image_pommier, taille_pommier)
 
 # Hérisson
 x_herisson = np.array([3,4.5])
 rayon_herisson = 1
 image_herisson = "src/herisson.png"
 taille_herisson = 2
-herisson = Herisson(x_herisson, rayon_herisson, image_herisson, taille_herisson, label="Hérisson")
+herisson = Herisson("Hérisson", x_herisson, rayon_herisson, image_herisson, taille_herisson)
 
 obstacles = [herisson]
+entites = [pomme, pommier, herisson]
 
 temps_total = 5 #s
 N = 100 #nombre de pas
 
-env = Environnement(m, temps_total, N, melo, pomme, obstacles, [pommier])
+env = Environnement(m, temps_total, N, melo, pomme, obstacles, entites)
 env.setup_ocp()
 env.solve()
 
@@ -46,4 +47,5 @@ env.solve()
 print("Position finale de Melo :", env.melo.x.VALUE[-1], env.melo.y.VALUE[-1])
 print("Vitesse finale de Melo  :", env.melo.vx.VALUE[-1], env.melo.vy.VALUE[-1])
 
-visualiser_simulation(env)
+chemin_sauvegarde = "src/simulation.gif"
+visualiser_simulation(env, chemin_sauvegarde)

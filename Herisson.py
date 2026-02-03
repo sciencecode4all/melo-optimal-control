@@ -1,10 +1,12 @@
 from Melo import Melo
+from Entite import Entite
 import matplotlib.image as mpimg
 # =========================
 # Hérisson : obstacle cercle
 # =========================
-class Herisson:
-    def __init__(self, x, r:float, image, taille, label="Hérisson"):
+class Herisson(Entite):
+    def __init__(self, nom:str, x, r:float, image:str, taille:float):
+        super().__init__(nom, x, image, taille)
         """
         Permet d'initialiser un hérisson. 
         Le hérisson est modélisé par un cercle de centre (x,y) et de rayon r
@@ -15,12 +17,13 @@ class Herisson:
         taille :float, taille de l'image
         label: str, nom de l'obstacle
         """
+        self.nom = nom
         self.x = x 
         self.r = r
         # Pour l'affichage
         self.image = mpimg.imread(image)
         self.taille = taille 
-        self.label = label
+        
 
     def constrainte_cercle(self, melo:Melo):
         """
