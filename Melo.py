@@ -1,10 +1,9 @@
+from gekko import GEKKO
+from Entite import Entite
+
 # =========================
 # Melo : le système mobile
 # =========================
-
-from gekko import GEKKO
-from Entite import Entite
-import matplotlib.image as mpimg
 
 class Melo(Entite):
     def __init__(self, m, nom:str, x0, image:str, taille:float, ):

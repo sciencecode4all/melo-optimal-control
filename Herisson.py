@@ -1,9 +1,11 @@
 from Melo import Melo
 from Entite import Entite
 import matplotlib.image as mpimg
+
 # =========================
 # Hérisson : obstacle cercle
 # =========================
+
 class Herisson(Entite):
     def __init__(self, nom:str, x, r:float, image:str, taille:float):
         super().__init__(nom, x, image, taille)

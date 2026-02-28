@@ -1,9 +1,9 @@
 import numpy as np
-from gekko import GEKKO
-from Melo import Melo
+
 # =========================
 # Environnement
 # =========================
+
 class Environnement:
     def __init__(self,m, temps_total, N, Melo, pomme_objectif, obstacles=[], entites=[]):
         self.m = m 

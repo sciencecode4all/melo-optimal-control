@@ -28,6 +28,7 @@ Ce projet s’adresse à un public large : lycéens, étudiants, grand public cu
 conda env create -n gekko310 -f environment.yml
 conda activate gekko310
 pip install gekko
+(pip install -U jupyter-book)
 ```
 
 ## Licence

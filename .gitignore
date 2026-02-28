@@ -208,3 +208,5 @@ __marimo__/
 
 #IDE
 .vscode/
+# MyST build outputs
+_build
