@@ -36,8 +36,8 @@ herisson = Herisson("Hérisson", x_herisson, rayon_herisson, image_herisson, tai
 obstacles = [herisson]
 entites = [pomme, pommier, herisson]
 
-temps_total = 5 #s
-N = 100 #nombre de pas
+temps_total = 5 # s
+N = 100 # nombre de pas de temps 
 
 env = Environnement(m, temps_total, N, melo, pomme, obstacles, entites)
 env.setup_ocp()

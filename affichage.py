@@ -12,7 +12,7 @@ def plot_image(ax, entite) :
         zorder=5
     )
 
-def visualiser_simulation(env, chemin_sauvegarde, fps=25) : 
+def visualiser_simulation(env, chemin_sauvegarde="", fps=25) : 
 
     # Récupération des trajectoires
     x = env.melo.x.VALUE
@@ -67,4 +67,5 @@ def visualiser_simulation(env, chemin_sauvegarde, fps=25) :
     )
 
     plt.show()
-    ani.save(chemin_sauvegarde, writer=PillowWriter(fps=fps))
+    if chemin_sauvegarde!="" :
+        ani.save(chemin_sauvegarde, writer=PillowWriter(fps=fps))

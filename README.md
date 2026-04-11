@@ -5,7 +5,7 @@
 
 <!-- ![til](src/simulation.gif) -->
 
-<img src="src/simulation.gif" width="50%" height="50%"/>
+<img src="src/simulation.gif" width="80%" height="80%"/>
 
 Dans cette vidéo, Mélo, une petite créature fictive, cherche à atteindre une pomme tout en respectant certaines contraintes (dynamique du mouvement, effort de commande, évitement d’obstacles). Ce problème est formalisé comme un problème de commande optimale, puis résolu numériquement.
 
